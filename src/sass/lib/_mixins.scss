@@ -1,0 +1,74 @@
+@mixin bitcoin-table($title-color, $currency-date-color){
+  &-table{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &-table > .table--title{
+    margin-bottom: 12px;
+    font-family: $main-font-type;
+    font-weight: 700;
+    text-align: start;
+    color: $title-color;
+    font-size: 1.8rem;
+  }
+  &-table > .table--currency-date{
+    margin-top: 16px;
+    padding: 8px;
+    font-family: $main-font-type;
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-align: start;
+    line-height: 1.5rem;
+    background-color: $currency-date-color;
+    border-radius: 5px;
+  }
+  &-table > table{
+    border-radius: 8px;
+    min-width: 101px * 2;
+    background-color: $just-white;
+    font-family: $secondary-font-type;
+    
+    td{
+      padding: 15px 17px;
+      text-align: start;
+      transition: .3s;
+      
+      @media screen and (min-width: 768px){
+        padding: 25px 27px;
+      }
+    }
+    td:nth-of-type(1){
+      font-weight: 500;
+      font-size: 1.6rem;
+      line-height: 1.9rem;
+      color: #B5B0AC;
+    }
+    td:nth-of-type(2){
+      font-weight: 500;
+      font-size: 1.4rem;
+      line-height: 1.7rem;
+      color: $font-mainColor;
+    }
+    td span.up,
+    td span.down{
+      margin-left: 10px;
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+    }
+    td span.up{
+      background-image: url(../../src/assets/icons/trending-up.svg);
+    }
+    td span.down{
+      background-image: url(../../src/assets/icons/trending-down.svg);
+    }
+  }
+}
+@mixin font-fcwsh($family: $main-font-type, $color: black, $weight: 500, $size: 1.4rem, $height: 1.8rem){
+  font-family: $family;
+  color: $color;
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $height;
+} 

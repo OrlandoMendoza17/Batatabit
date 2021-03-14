@@ -1,0 +1,322 @@
+@import './lib/variables';
+@import './lib/reset';
+@import './lib/mixins';
+
+/* 
+  1. Posicionamiento
+  2. Modelo de Caja
+  3. Tipografía 
+  4. Temas visuales
+    |_ Shadow Box, etc
+  5. Otros
+*/
+$min-width: 288px;
+$max-width: 700px;
+
+.header{
+  padding: 10px;
+  padding-top: 42px;
+  padding-bottom: 62px;
+  width: 100%;
+  min-height: 334px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(207.8deg, #201E1C 16.69%, #F7931A 100%);
+  
+  h1{
+    margin: 36px 0 24px 0;
+    min-width: $min-width;
+    max-width: $max-width;
+    @include font-fcwsh($main-font-type, $just-white, 700, 2.4rem, 2.6rem);
+  }
+  
+  .brand-description{
+    min-width: $min-width;
+    max-width: $max-width;
+    @include font-fcwsh($main-font-type, $soft-orange);
+  }
+}
+.bitcoin-section{
+  position: relative;
+  padding: 64px 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $mainBackground-Color;
+  
+  .bitcoin_call-to-action{
+    position: absolute;
+    display: inline-block;
+    top: -24px;
+    left: calc(50% - (229px / 2));
+    border-radius: 8px;
+    padding: 15px;
+    @include font-fcwsh($main-font-type, $warm-black, 700);
+    background-color: #FAF8F7;
+    box-shadow: 0px 4px 8px rgba(89, 73, 30, 0.16);
+    
+    & > span{
+      margin-left: 10px;
+      display: inline-block;
+      width: 13px;
+      height: 8px;
+      background-image: url(../../src/assets/icons/arrow-down-black.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+  
+  & > img{
+    width: 100%;
+    max-width: 195px;  
+    margin-bottom: 40px;
+  }
+  .bitcoin_title{
+    min-width: $min-width;
+    max-width: $max-width;
+    margin-top: 40px;
+    @include font-fcwsh($main-font-type, $warm-black, 700, 2.4rem, 2.6rem);
+    text-align: center;
+  }
+  .bitcoin_description{
+    min-width: $min-width;
+    max-width: $max-width;
+    margin: 24px 0 48px 0;
+    @include font-fcwsh($main-font-type, $font-mainColor);
+    text-align: center;
+  }
+  .bitcoin_tables{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    
+    @media screen and (min-width: 768px){
+      grid-template-columns: 1fr 1fr;
+      gap: 75px;
+    }
+    // 
+    & > .moneda{
+      @include bitcoin-table($bitCoin-orange, $soft-orange);
+    }
+    & > .comisiones{
+      @include bitcoin-table($secondary-blue, $soft-blue);
+    }
+  }
+}
+.features{
+  position: relative;
+  padding: 64px 16px;
+  background-color: $warm-black;
+  text-align: center;
+  
+  .batata{
+    position: absolute;
+    top: calc(0px - (24px / 2));
+    left: calc(50% - (41px / 2));
+    width: 41px;
+    height: 24px;
+    background-image: url(../../src/assets/icons/batata.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  
+  & > h2{
+    margin-bottom: 24px;
+    @include font-fcwsh($main-font-type, $just-white, 700, 2.4rem, 2.6rem);
+  }
+  & > p{
+    @include font-fcwsh($main-font-type, $font-greyColor);
+  }
+}
+.features-container{
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: minmax($min-width, 400px);
+  grid-template-rows: minmax(152px, auto);
+  justify-content: center;
+  gap: 16px;
+  
+  @media screen and (min-width: 992px){
+    grid-template-columns: repeat(2, minmax($min-width, 400px));
+  }
+  
+  .card{
+    padding: 20px;
+    border-radius: 8px;
+    text-align: start;
+    background-color: $black;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.16);
+    
+    .card_icon{
+      width: 20px;
+      height: 20px;
+      display: block;
+      color: $bitCoin-orange;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }   
+    .card_icon--clock{
+      background-image: url(../../src/assets/icons/clock.svg);
+    }
+    .card_icon--eye{
+      background-image: url(../../src/assets/icons/eye.svg);
+    }
+    .card_icon--dolar{
+      background-image: url(../../src/assets/icons/dollar-sign.svg);
+    }
+    .card_icon--check{
+      background-image: url(../../src/assets/icons/check-circle.svg);
+    }
+    .card_title{
+      @include font-fcwsh($main-font-type, $just-white, 700, 1.8rem, 1.8rem);
+    }   
+    .card_description{
+      @include font-fcwsh($main-font-type, $font-greyColor);
+    }   
+  }
+}
+.bitcoin-baby{
+  padding: 64px 20px;
+  width: 100%;
+  height: 50vh;
+  max-height: 387px;
+  background-image: url(../../src/assets/images/Background-image.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  h3{
+    text-align: center;
+    @include font-fcwsh($main-font-type, $just-white, 700, 2.4rem, 2.6rem);
+  }
+}
+#plans{
+  padding: 64px 20px;
+  width: 100%;
+  background-color: $mainBackground-Color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  h2{
+    min-width: $min-width;
+    max-width: $max-width;
+    text-align: center;
+    @include font-fcwsh($main-font-type, $warm-black, 700, 2.4rem, 2.6rem);
+  }
+  > p{
+    min-width: $min-width;
+    max-width: $max-width;
+    margin: 24px 0 48px 0;
+    @include font-fcwsh($main-font-type, $font-mainColor);
+    text-align: center;
+  }
+}
+#plans > .plans-card-container{
+  width: 100%;
+  max-width: 610px;
+  height: 300px;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 190px);
+  align-content: center;
+  align-items: center;
+  grid-auto-flow: column;
+  gap: 10px;
+  overflow: auto;
+  
+  .plans-card{
+    // max-width: 190px;
+    border-radius: 8px;
+    // max-width: 190px;
+    position: relative;
+    padding: 20px;
+    text-align: center;
+    background-color: $just-white;
+    
+    .plans-card_top-badge{
+      padding: 8px;
+      position: absolute;
+      top: 0px - (31px / 2);
+      left: calc(50% - (101px / 2));
+      text-align: center;
+      @include font-fcwsh($main-font-type, $just-white, 700, 1.2rem, 1.5rem);
+      background-color: $bitCoin-orange;
+      border-radius: 5px;
+    }
+    .plans-card_title{
+      margin-top: 8px;
+      margin-bottom: 8px;
+      @include font-fcwsh($main-font-type);
+      text-align: center;
+    }
+    .plans-card_price{
+      position: relative;
+      text-align: center;
+      @include font-fcwsh($secondary-font-type, black, 700, 5.2rem, 6.3rem);
+      
+      > span{
+        position: absolute;
+        top: 10px;
+        left: -10px;
+        text-align: center;
+        @include font-fcwsh($main-font-type, $font-mainColor, 500, 1.2rem, 1.5rem);
+      }
+    }
+    .plans-card_description{
+      margin: 16px 0;
+      text-align: center;
+      @include font-fcwsh($main-font-type, $font-mainColor, 500, 1.2rem, 1.5rem);
+    }
+    .plans-card_btn{
+      padding: 12px;
+      display: grid;
+      grid-template-columns: 85px auto;
+      justify-content: center;
+      gap: 10px;
+      align-items: center;
+      @include font-fcwsh($main-font-type, $warm-black);
+      text-align: center;
+      border: 2px solid $bitCoin-orange;
+      border-radius: 3px;
+      
+      span{
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        background-image: url(../../src/assets/icons/arrow-right.svg);
+      }
+    }
+  }
+}
+footer{
+  padding: 40px 65px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(auto, 250px));
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  gap: 50px;
+  background-color: $bitCoin-orange;
+  
+  ul{
+    display: grid;
+    grid-template-columns: 81px;
+    gap: 8px;
+    @include font-fcwsh($main-font-type, $just-white);
+  }
+  
+  img{
+    width: 64px;
+  }
+}
